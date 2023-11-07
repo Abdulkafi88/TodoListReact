@@ -1,10 +1,4 @@
 const ShowTask = ({ taskList, setTaskList }) => {
-  const abdulTask = [
-    { id: 10001, name: "Task A", time: "2:09:01 AM 9/14/2030" },
-    { id: 10001, name: "Task A", time: "2:09:01 AM 9/14/2030" },
-    { id: 10001, name: "Task A", time: "2:09:01 AM 9/14/2030" },
-  ];
-
   return (
     <section className="showTask">
       <div className="flex">
@@ -15,7 +9,7 @@ const ShowTask = ({ taskList, setTaskList }) => {
         <button className="clearAll ">Clear All</button>
       </div>
       <ul>
-        {abdulTask.map((tasks, index) => (
+        {taskList.map((tasks, index) => (
           <li key={index}>
             <p>
               <span className="name">{tasks.name}</span>

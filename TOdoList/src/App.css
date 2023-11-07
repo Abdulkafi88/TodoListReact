@@ -12,7 +12,9 @@
   padding: 0;
   text-decoration: none;
 }
-
+body{
+  background-color: black;
+}
 .App {
   min-height: 100vh;
 }

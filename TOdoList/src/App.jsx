@@ -4,7 +4,7 @@ import Header from './com/Header'
 import AddTask from './com/AddTask'
 import ShowTask from './com/ShowTask'
 function App() {
-const [taskList , setTaskList] = useState([ ])
+const [taskList , setTaskList] = useState([])
 
   return (
     <>
