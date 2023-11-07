@@ -1,27 +1,56 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 export const TodoForm = () => {
-    const [uservalue,setUserValue] = useState('')
-    const handleSubmit = (e)=>{
-       e.preventDefault()
+  const [userValue, setUserValue] = useState("");
+  const [task, setTask] = useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (userValue.trim() !== "") {
+      const userTask = {
+        id: Math.floor(Math.random() * 1000),
+        text: userValue,
+      };
+      setTask([...task, userTask]);
+      setUserValue("");
     }
+  };
+  const handleDelet = (id) => {
+    const update = task.filter((userTask) => userTask.id !== id);
+    setTask(update);
+  };
   return (
     <div className="todo-app">
-      <h1>what's the plan for Todoy?</h1>
+      <h1>What's the plan for today?</h1>
       <form className="todo-form" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="type your Task"
+          placeholder="Type your Task"
           className="todo-input"
-          value={uservalue}
-          onChange={(e)=>setUserValue(e.target.value)}
+          value={userValue}
+          onChange={(e) => {
+            setUserValue(e.target.value);
+          }}
         />
-        <button className="todo-button" type="submit">Add Tasks</button>
+        <button className="todo-button" type="submit">
+          Add Task
+        </button>
       </form>
       <div>
-        <p className="todo-row1">sdfsfsf</p>
+        {task.map((userTask, index) => (
+          <li key={index}>
+            <p className="todo-row1">
+              {userTask.text}
+              <i
+                className="fa-solid fa-trash"
+                onClick={(id) => handleDelet(userTask.id)}
+              ></i>
+            </p>
+          </li>
+        ))}
       </div>
     </div>
-  )
-}
-export default TodoForm
+  );
+};
+
+export default TodoForm;
