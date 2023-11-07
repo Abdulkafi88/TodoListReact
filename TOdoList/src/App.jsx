@@ -1,19 +1,15 @@
-import { useState } from 'react'
-import './App.css'
-import Header from './com/Header'
-import AddTask from './com/AddTask'
-import ShowTask from './com/ShowTask'
+import { useState } from "react"
+import "./App.css"
+import {TodoForm} from "./com/TodoForm"
+import {TodoList} from './com/TodoList'
 function App() {
-const [taskList , setTaskList] = useState([])
-
   return (
-    <>
-      <Header />
-      <AddTask taskList = {taskList} setTaskList = {setTaskList} />
-      <ShowTask  taskList = {taskList} setTaskList = {setTaskList}/>
-    </>
+    <div className="todo-app'">
+      
+      <TodoForm />
+    <TodoList />
+    </div>
   )
 }
 
 export default App
-1
